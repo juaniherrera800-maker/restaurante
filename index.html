@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f4ed" />
+    <meta
+      name="description"
+      content="Carta de nuestro restaurante. Cocina casera, buenos ingredientes y sabores para compartir."
+    />
+    <title>Casa Oliva | Restaurante</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --fondo: #f6f4ed;
+        --papel: #fffefa;
+        --verde: #354638;
+        --verde-claro: #e8ece3;
+        --terracota: #ad684f;
+        --texto: #292c26;
+        --secundario: #77786f;
+        --linea: #e5e2d8;
+        --radio: 14px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 125px;
+      }
+
+      body {
+        background: var(--fondo);
+        color: var(--texto);
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .container {
+        width: min(100% - 40px, 1060px);
+        margin-inline: auto;
+      }
+
+      /* ENCABEZADO */
+
+      .topbar {
+        border-bottom: 1px solid var(--linea);
+        background: var(--fondo);
+      }
+
+      .topbar-inner {
+        min-height: 84px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--verde);
+        color: var(--verde);
+        font-family: "Playfair Display", serif;
+        font-size: 25px;
+        border-radius: 50%;
+      }
+
+      .brand-name {
+        color: var(--verde);
+        font-family: "Playfair Display", serif;
+        font-size: 25px;
+        line-height: 1.05;
+        letter-spacing: -0.5px;
+      }
+
+      .brand-subtitle {
+        margin-top: 5px;
+        color: var(--secundario);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .header-info {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        color: var(--secundario);
+        font-size: 12px;
+      }
+
+      .header-info span {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        display: inline-block;
+        border-radius: 50%;
+        background: #728b62;
+      }
+
+      /* PRESENTACIÓN */
+
+      .intro {
+        display: grid;
+        grid-template-columns: 1fr 0.85fr;
+        align-items: center;
+        gap: 42px;
+        padding-top: 42px;
+        padding-bottom: 34px;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+        color: var(--terracota);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 25px;
+        height: 1px;
+        background: var(--terracota);
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 500;
+      }
+
+      .intro h1 {
+        max-width: 500px;
+        color: var(--verde);
+        font-size: clamp(35px, 4.2vw, 51px);
+        line-height: 1.12;
+        letter-spacing: -1.5px;
+      }
+
+      .intro h1 em {
+        color: var(--terracota);
+        font-weight: 500;
+      }
+
+      .intro-copy {
+        max-width: 400px;
+        margin-top: 16px;
+        color: var(--secundario);
+        font-size: 13px;
+        line-height: 1.9;
+      }
+
+      .intro-image {
+        height: 220px;
+        overflow: hidden;
+        border-radius: var(--radio);
+        background: #ded9ca;
+        position: relative;
+      }
+
+      .intro-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .image-caption {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        padding: 7px 11px;
+        background: rgba(255, 254, 250, 0.94);
+        border-radius: 4px;
+        color: var(--verde);
+        font-size: 10px;
+        letter-spacing: 0.4px;
+      }
+
+      /* NAVEGACIÓN DE LA CARTA */
+
+      .menu-navigation {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(246, 244, 237, 0.96);
+        border-top: 1px solid var(--linea);
+        border-bottom: 1px solid var(--linea);
+        backdrop-filter: blur(12px);
+      }
+
+      .nav-scroll {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        overflow-x: auto;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        scrollbar-width: none;
+      }
+
+      .nav-scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-link {
+        flex-shrink: 0;
+        display: inline-block;
+        padding: 9px 15px;
+        border: 1px solid transparent;
+        border-radius: 30px;
+        color: #65675e;
+        font-size: 11px;
+        font-weight: 600;
+        transition: 0.2s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        background: var(--verde);
+        color: white;
+      }
+
+      /* CONTENIDO */
+
+      .menu-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 255px;
+        gap: 48px;
+        align-items: start;
+        padding-top: 35px;
+        padding-bottom: 55px;
+      }
+
+      .menu-main {
+        min-width: 0;
+      }
+
+      .menu-section {
+        margin-bottom: 39px;
+        scroll-margin-top: 100px;
+      }
+
+      .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 15px;
+        margin-bottom: 18px;
+        padding-bottom: 13px;
+        border-bottom: 1px solid var(--linea);
+      }
+
+      .section-heading h2 {
+        color: var(--verde);
+        font-size: 29px;
+        line-height: 1.2;
+      }
+
+      .section-note {
+        color: var(--secundario);
+        font-size: 10px;
+        text-align: right;
+      }
+
+      .dish-list {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .dish {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px 18px;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--linea);
+      }
+
+      .dish:last-child {
+        border-bottom: none;
+      }
+
+      .dish-title {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        color: var(--texto);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .dish-description {
+        max-width: 500px;
+        margin-top: 5px;
+        color: var(--secundario);
+        font-size: 11px;
+        line-height: 1.7;
+      }
+
+      .dish-price {
+        padding-top: 1px;
+        color: var(--verde);
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .tag {
+        padding: 3px 7px;
+        border-radius: 3px;
+        background: var(--verde-claro);
+        color: var(--verde);
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .tag.terra {
+        background: #f1e4dc;
+        color: #98583f;
+      }
+
+      /* PLATOS DESTACADOS */
+
+      .featured {
+        margin-bottom: 38px;
+      }
+
+      .featured-heading {
+        margin-bottom: 17px;
+        color: var(--verde);
+        font-size: 25px;
+      }
+
+      .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+      }
+
+      .featured-card {
+        overflow: hidden;
+        border: 1px solid var(--linea);
+        border-radius: 10px;
+        background: var(--papel);
+      }
+
+      .featured-card img {
+        display: block;
+        width: 100%;
+        height: 145px;
+        object-fit: cover;
+        background: #e4dfd2;
+      }
+
+      .featured-body {
+        padding: 14px;
+      }
+
+      .featured-label {
+        margin-bottom: 6px;
+        color: var(--terracota);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .featured-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+      }
+
+      .featured-title {
+        color: var(--verde);
+        font-size: 17px;
+        line-height: 1.3;
+      }
+
+      .featured-price {
+        color: var(--verde);
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .featured-description {
+        margin-top: 7px;
+        color: var(--secundario);
+        font-size: 11px;
+        line-height: 1.7;
+      }
+
+      /* LATERAL */
+
+      .menu-sidebar {
+        position: sticky;
+        top: 82px;
+      }
+
+      .sidebar-card {
+        margin-bottom: 15px;
+        padding: 21px;
+        border: 1px solid var(--linea);
+        border-radius: 10px;
+        background: var(--papel);
+      }
+
+      .sidebar-card h3 {
+        margin-bottom: 11px;
+        color: var(--verde);
+        font-size: 21px;
+      }
+
+      .sidebar-card p {
+        color: var(--secundario);
+        font-size: 11px;
+        line-height: 1.9;
+      }
+
+      .sidebar-divider {
+        height: 1px;
+        margin: 15px 0;
+        background: var(--linea);
+      }
+
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 10px;
+        font-size: 11px;
+      }
+
+      .info-row span:first-child {
+        color: var(--secundario);
+      }
+
+      .info-row span:last-child {
+        color: var(--verde);
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .quote-card {
+        padding: 23px 20px;
+        border-radius: 10px;
+        background: var(--verde);
+        color: #fffefa;
+      }
+
+      .quote-mark {
+        color: #d4a58d;
+        font-family: "Playfair Display", serif;
+        font-size: 35px;
+        line-height: 1;
+      }
+
+      .quote-card p {
+        margin-top: 8px;
+        font-family: "Playfair Display", serif;
+        font-size: 19px;
+        line-height: 1.5;
+      }
+
+      .quote-card small {
+        display: block;
+        margin-top: 13px;
+        color: #d3d8cf;
+        font-size: 9px;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+      }
+
+      /* PIE */
+
+      footer {
+        border-top: 1px solid var(--linea);
+        background: #efede4;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding-top: 23px;
+        padding-bottom: 23px;
+      }
+
+      .footer-brand {
+        color: var(--verde);
+        font-family: "Playfair Display", serif;
+        font-size: 19px;
+      }
+
+      .footer-text {
+        margin-top: 3px;
+        color: var(--secundario);
+        font-size: 10px;
+      }
+
+      .footer-social {
+        color: var(--verde);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      /* ADAPTACIÓN A CELULARES */
+
+      @media (max-width: 760px) {
+        .container {
+          width: min(100% - 30px, 600px);
+        }
+
+        .topbar-inner {
+          min-height: 73px;
+        }
+
+        .brand-mark {
+          width: 39px;
+          height: 39px;
+          font-size: 22px;
+        }
+
+        .brand-name {
+          font-size: 22px;
+        }
+
+        .header-info {
+          gap: 0;
+        }
+
+        .header-info .hours {
+          display: none;
+        }
+
+        .intro {
+          grid-template-columns: 1fr;
+          gap: 21px;
+          padding-top: 30px;
+          padding-bottom: 25px;
+        }
+
+        .intro h1 {
+          max-width: 460px;
+          font-size: 39px;
+        }
+
+        .intro-copy {
+          margin-top: 12px;
+        }
+
+        .intro-image {
+          height: 195px;
+        }
+
+        .nav-scroll {
+          gap: 3px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+
+        .nav-link {
+          padding: 8px 12px;
+          font-size: 10px;
+        }
+
+        .menu-layout {
+          grid-template-columns: 1fr;
+          gap: 8px;
+          padding-top: 27px;
+          padding-bottom: 35px;
+        }
+
+        .menu-sidebar {
+          position: static;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+
+        .sidebar-card,
+        .quote-card {
+          margin-bottom: 0;
+        }
+
+        .quote-card {
+          grid-column: 1 / -1;
+        }
+
+        .section-heading h2 {
+          font-size: 27px;
+        }
+      }
+
+      @media (max-width: 430px) {
+        .featured-grid {
+          gap: 10px;
+        }
+
+        .featured-card img {
+          height: 115px;
+        }
+
+        .featured-body {
+          padding: 11px;
+        }
+
+        .featured-title-row {
+          display: block;
+        }
+
+        .featured-price {
+          display: block;
+          margin-top: 5px;
+        }
+
+        .featured-title {
+          font-size: 15px;
+        }
+
+        .dish {
+          gap: 7px 10px;
+        }
+
+        .dish-title {
+          font-size: 12px;
+        }
+
+        .dish-description {
+          font-size: 10px;
+        }
+
+        .dish-price {
+          font-size: 12px;
+        }
+
+        .menu-sidebar {
+          grid-template-columns: 1fr;
+        }
+
+        .quote-card {
+          grid-column: auto;
+        }
+
+        .footer-inner {
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ENCABEZADO -->
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="#" aria-label="Casa Oliva, inicio">
+          <div class="brand-mark">O.</div>
+          <div>
+            <div class="brand-name">Casa Oliva</div>
+            <div class="brand-subtitle">Restaurante · Cocina de autor</div>
+          </div>
+        </a>
+
+        <div class="header-info">
+          <span><i class="status-dot"></i> Nuestra carta</span>
+          <span class="hours">Mar. a dom. · 12 a 00 h</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- PRESENTACIÓN -->
+    <main>
+      <section class="container intro">
+        <div>
+          <div class="eyebrow">Cocina para disfrutar</div>
+          <h1>Buenos sabores,<br /><em>mejores momentos.</em></h1>
+          <p class="intro-copy">
+            Platos hechos con buenos ingredientes, recetas que nos gustan y una
+            mesa siempre lista para compartir. Elegí tu próximo favorito.
+          </p>
+        </div>
+
+        <div class="intro-image">
+          <img
+            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85"
+            alt="Plato fresco preparado con ingredientes de estación"
+            fetchpriority="high"
+          />
+          <div class="image-caption">Simple, fresco y hecho con ganas.</div>
+        </div>
+      </section>
+
+      <!-- CATEGORÍAS -->
+      <nav class="menu-navigation" aria-label="Categorías del menú">
+        <div class="container nav-scroll">
+          <a class="nav-link active" href="#destacados">Destacados</a>
+          <a class="nav-link" href="#entradas">Entradas</a>
+          <a class="nav-link" href="#principales">Principales</a>
+          <a class="nav-link" href="#pastas">Pastas</a>
+          <a class="nav-link" href="#guarniciones">Guarniciones</a>
+          <a class="nav-link" href="#postres">Postres</a>
+          <a class="nav-link" href="#bebidas">Bebidas</a>
+        </div>
+      </nav>
+
+      <div class="container menu-layout">
+        <div class="menu-main">
+          <!-- DESTACADOS -->
+          <section class="featured" id="destacados">
+            <div class="section-heading">
+              <h2>De la casa</h2>
+              <span class="section-note">Nuestros recomendados</span>
+            </div>
+
+            <div class="featured-grid">
+              <article class="featured-card">
+                <img
+                  src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"
+                  alt="Carne asada acompañada de vegetales"
+                  loading="lazy"
+                />
+                <div class="featured-body">
+                  <div class="featured-label">Favorito de la casa</div>
+                  <div class="featured-title-row">
+                    <h3 class="featured-title">Ojo de bife</h3>
+                    <span class="featured-price">$18.500</span>
+                  </div>
+                  <p class="featured-description">
+                    Con papas rústicas, hierbas frescas y salsa criolla.
+                  </p>
+                </div>
+              </article>
+
+              <article class="featured-card">
+                <img
+                  src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80"
+                  alt="Pasta fresca con hierbas y queso"
+                  loading="lazy"
+                />
+                <div class="featured-body">
+                  <div class="featured-label">Hecho en casa</div>
+                  <div class="featured-title-row">
+                    <h3 class="featured-title">Pasta del día</h3>
+                    <span class="featured-price">$12.900</span>
+                  </div>
+                  <p class="featured-description">
+                    Pasta fresca con salsa cremosa, queso y albahaca.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- ENTRADAS -->
+          <section class="menu-section" id="entradas">
+            <div class="section-heading">
+              <h2>Para empezar</h2>
+              <span class="section-note">Entradas</span>
+            </div>
+
+            <div class="dish-list">
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Provoleta a la parrilla</div>
+                  <p class="dish-description">
+                    Queso provolone, orégano, tomates cherry y pan tostado.
+                  </p>
+                </div>
+                <div class="dish-price">$7.800</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">
+                    Empanadas de carne <span class="tag">2 unidades</span>
+                  </div>
+                  <p class="dish-description">
+                    Carne cortada a cuchillo, cebolla y especias de la casa.
+                  </p>
+                </div>
+                <div class="dish-price">$5.200</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Burrata con tomates</div>
+                  <p class="dish-description">
+                    Burrata cremosa, tomates frescos, oliva y albahaca.
+                  </p>
+                </div>
+                <div class="dish-price">$9.400</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Papas Oliva</div>
+                  <p class="dish-description">
+                    Papas doradas, alioli casero y verdeo fresco.
+                  </p>
+                </div>
+                <div class="dish-price">$6.500</div>
+              </article>
+            </div>
+          </section>
+
+          <!-- PRINCIPALES -->
+          <section class="menu-section" id="principales">
+            <div class="section-heading">
+              <h2>Platos principales</h2>
+              <span class="section-note">Para disfrutar</span>
+            </div>
+
+            <div class="dish-list">
+              <article class="dish">
+                <div>
+                  <div class="dish-title">
+                    Milanesa napolitana <span class="tag terra">Clásico</span>
+                  </div>
+                  <p class="dish-description">
+                    Milanesa de ternera, salsa de tomate, mozzarella y papas
+                    fritas.
+                  </p>
+                </div>
+                <div class="dish-price">$14.500</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Bife de chorizo</div>
+                  <p class="dish-description">
+                    A la parrilla, con ensalada de estación y papas rústicas.
+                  </p>
+                </div>
+                <div class="dish-price">$19.800</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Pollo grillado</div>
+                  <p class="dish-description">
+                    Pechuga grillada, puré de calabaza y vegetales salteados.
+                  </p>
+                </div>
+                <div class="dish-price">$13.200</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Hamburguesa de la casa</div>
+                  <p class="dish-description">
+                    Medallón de carne, cheddar, cebolla caramelizada y papas.
+                  </p>
+                </div>
+                <div class="dish-price">$12.800</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Risotto de hongos</div>
+                  <p class="dish-description">
+                    Arroz cremoso, hongos salteados, parmesano y tomillo.
+                  </p>
+                </div>
+                <div class="dish-price">$13.900</div>
+              </article>
+            </div>
+          </section>
+
+          <!-- PASTAS -->
+          <section class="menu-section" id="pastas">
+            <div class="section-heading">
+              <h2>Pastas</h2>
+              <span class="section-note">Preparadas en casa</span>
+            </div>
+
+            <div class="dish-list">
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Sorrentinos de jamón y queso</div>
+                  <p class="dish-description">
+                    Masa casera, relleno suave y salsa a elección.
+                  </p>
+                </div>
+                <div class="dish-price">$12.500</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Ñoquis de papa</div>
+                  <p class="dish-description">
+                    Ñoquis caseros con salsa fileto o crema de parmesano.
+                  </p>
+                </div>
+                <div class="dish-price">$10.900</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Ravioles de verdura</div>
+                  <p class="dish-description">
+                    Relleno de espinaca y ricota, con salsa rosa.
+                  </p>
+                </div>
+                <div class="dish-price">$11.800</div>
+              </article>
+            </div>
+          </section>
+
+          <!-- GUARNICIONES -->
+          <section class="menu-section" id="guarniciones">
+            <div class="section-heading">
+              <h2>Guarniciones</h2>
+              <span class="section-note">Para acompañar</span>
+            </div>
+
+            <div class="dish-list">
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Papas fritas</div>
+                  <p class="dish-description">Porción para compartir.</p>
+                </div>
+                <div class="dish-price">$4.800</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Ensalada mixta</div>
+                  <p class="dish-description">Lechuga, tomate y cebolla.</p>
+                </div>
+                <div class="dish-price">$4.200</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Puré de calabaza</div>
+                  <p class="dish-description">
+                    Cremoso, con un toque de oliva.
+                  </p>
+                </div>
+                <div class="dish-price">$3.900</div>
+              </article>
+            </div>
+          </section>
+
+          <!-- POSTRES -->
+          <section class="menu-section" id="postres">
+            <div class="section-heading">
+              <h2>Algo dulce</h2>
+              <span class="section-note">Postres</span>
+            </div>
+
+            <div class="dish-list">
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Flan casero</div>
+                  <p class="dish-description">Con dulce de leche o crema.</p>
+                </div>
+                <div class="dish-price">$4.200</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Volcán de chocolate</div>
+                  <p class="dish-description">
+                    Bizcocho tibio de chocolate con centro fundido.
+                  </p>
+                </div>
+                <div class="dish-price">$5.800</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Tiramisú de la casa</div>
+                  <p class="dish-description">
+                    Café, crema de mascarpone y cacao amargo.
+                  </p>
+                </div>
+                <div class="dish-price">$4.900</div>
+              </article>
+            </div>
+          </section>
+
+          <!-- BEBIDAS -->
+          <section class="menu-section" id="bebidas">
+            <div class="section-heading">
+              <h2>Bebidas</h2>
+              <span class="section-note">Para acompañar</span>
+            </div>
+
+            <div class="dish-list">
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Agua mineral</div>
+                  <p class="dish-description">Con o sin gas · 500 ml.</p>
+                </div>
+                <div class="dish-price">$2.000</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Gaseosa</div>
+                  <p class="dish-description">Línea clásica · 500 ml.</p>
+                </div>
+                <div class="dish-price">$2.500</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Limonada casera</div>
+                  <p class="dish-description">Limón, menta y hielo.</p>
+                </div>
+                <div class="dish-price">$3.200</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Cerveza artesanal</div>
+                  <p class="dish-description">
+                    Consulta las variedades disponibles.
+                  </p>
+                </div>
+                <div class="dish-price">$4.500</div>
+              </article>
+
+              <article class="dish">
+                <div>
+                  <div class="dish-title">Copa de vino</div>
+                  <p class="dish-description">
+                    Consultar etiquetas disponibles.
+                  </p>
+                </div>
+                <div class="dish-price">$5.000</div>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <!-- INFORMACIÓN LATERAL -->
+        <aside class="menu-sidebar">
+          <div class="sidebar-card">
+            <h3>Un buen momento empieza acá.</h3>
+            <p>
+              Vení a disfrutar de nuestra cocina, compartir algo rico y sentirte
+              como en casa.
+            </p>
+
+            <div class="sidebar-divider"></div>
+
+            <div class="info-row">
+              <span>Días</span>
+              <span>Mar. a dom.</span>
+            </div>
+            <div class="info-row">
+              <span>Almuerzo</span>
+              <span>12 a 15 h</span>
+            </div>
+            <div class="info-row">
+              <span>Cena</span>
+              <span>20 a 00 h</span>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-mark">“</div>
+            <p>La buena comida siempre encuentra una excusa para reunirnos.</p>
+            <small>Casa Oliva · Restaurante</small>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          <div class="footer-brand">Casa Oliva</div>
+          <p class="footer-text">Cocina rica, momentos compartidos.</p>
+        </div>
+
+        <a
+          class="footer-social"
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Seguinos en Instagram ↗
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      // Resalta la categoría seleccionada en la navegación.
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.forEach((item) => item.classList.remove("active"));
+          link.classList.add("active");
+        });
+      });
+
+      // Actualiza la categoría activa al desplazarse por la carta.
+      const sections = document.querySelectorAll("#destacados, .menu-section");
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const activeLink = document.querySelector(
+                  '.nav-link[href="#' + entry.target.id + '"]',
+                );
+
+                if (activeLink) {
+                  navLinks.forEach((link) => link.classList.remove("active"));
+                  activeLink.classList.add("active");
+                }
+              }
+            });
+          },
+          {
+            rootMargin: "-20% 0px -65% 0px",
+          },
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      }
+    </script>
+  </body>
+</html>
